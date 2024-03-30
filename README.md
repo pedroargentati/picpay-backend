@@ -17,7 +17,7 @@ A solução desenvolvida é basicamente uma versão simplificada do PicPay.
 
 - Clonar repositório git:
 ```
-git clone https://github.com/giuliana-bezerra/picpay-desafio-backend.git
+git clone https://github.com/pedroargentati/picpay-backend.git
 ```
 - Executar o Kafka:
 ```
