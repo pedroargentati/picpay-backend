@@ -1,4 +1,4 @@
-package br.com.picpay.wallet;
+package br.com.picpay.transaction;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
