@@ -10,7 +10,7 @@ public class NotificationProducer {
 
 	private final KafkaTemplate<String, Transaction> kafkaTemplate;
 	
-	private final String TRANSACTION_TOPIC = "transaction-notificatio";
+	private final String TRANSACTION_TOPIC = "transaction-notification";
 	
 	public NotificationProducer(KafkaTemplate<String, Transaction> kafkaTemplate) {
 		this.kafkaTemplate = kafkaTemplate;

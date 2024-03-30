@@ -17,7 +17,7 @@ public class NotificationConsumer {
 				.build();
 	}
 	
-	@KafkaListener(topics = "transaction-notificatio", groupId = "picpay-backend")
+	@KafkaListener(topics = "transaction-notification", groupId = "picpay-backend")
 	public void receiveNotification(Transaction transaction) {
 		var response = this.restClient
 				.get()
