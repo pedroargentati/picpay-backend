@@ -13,5 +13,14 @@ public enum WalletType {
 	public int getValue() {
 		return this.value;
 	}
+	
+    public WalletType of(Integer source) {
+        for (WalletType type : WalletType.values()) {
+            if (type.getValue() == source) {
+                return type;
+            }
+        }
+        throw new IllegalArgumentException("Invalid value for WalletType: " + source);
+    }
 
 }

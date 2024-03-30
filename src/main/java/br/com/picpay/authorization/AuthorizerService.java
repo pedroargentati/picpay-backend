@@ -1,5 +1,7 @@
 package br.com.picpay.authorization;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -8,6 +10,7 @@ import br.com.picpay.transaction.UnauthorizedTransactionException;
 
 @Service
 public class AuthorizerService {
+	private static final Logger LOGGER = LoggerFactory.getLogger(AuthorizerService.class);
 
 	private RestClient restClient;
 
@@ -23,12 +26,14 @@ public class AuthorizerService {
 	 * @param transaction transação em questão.
 	 */
 	public void authorize(Transaction transaction) {
+		LOGGER.info("authorizing transaction {}...", transaction);
 		var response = restClient
 				.get()
 				.retrieve()
 				.toEntity(Authorization.class);
 
-		if (response.getStatusCode().isError() || !response.getBody().isAuthorized())
+		if (response.getStatusCode().isError() || !response.getBody().isAuthorized()) {
 			throw new UnauthorizedTransactionException("Unauthorized transaction!");
+		}
 	}
 }
